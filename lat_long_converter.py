@@ -26,9 +26,6 @@ if __name__ == "__main__":
         writer = csv.DictWriter(csvfile_out, fieldnames)
         writer.writeheader()
 
-        # true_count = 0
-        # false_names = []
-
         neighbourhoods = get_all_neighbourhoods()
         for (i, row) in enumerate(reader):
             if i % 1000 == 0:
@@ -41,17 +38,6 @@ if __name__ == "__main__":
                 calculated_area_id, calculated_area_name = find_neighbourhood(lat, long, neighbourhoods)
                 calculated_area_name = calculated_area_name
 
-                # area_name = row["Community Area Name"].lower()
-                # area_id = row["Community Area Number"]
-                # if calculated_area_id == area_id:
-                #     true_count += 1
-                # else:
-                #     false_names.append((i, calculated_area_id, area_id))
-
                 row["community area name"] = calculated_area_name
                 row["community area number"] = calculated_area_id
             writer.writerow(row)
-
-        # print(true_count)
-        # print(false_names)
-

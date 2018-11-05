@@ -74,7 +74,6 @@ def get_all_neighbourhoods():
     d = load_json()
     shape_list = []
     for shape_idx in range(len(d['features'])):
-        # name = d['features'][shape_idx]['properties']['SEC_NEIGH']
         name = d['features'][shape_idx]['properties']['community']
         id = d['features'][shape_idx]['properties']['area_numbe']
 
@@ -100,7 +99,6 @@ def find_neighbourhood(lat, long, neighborhoods):
     for neighborhood in neighborhoods:
         correct_neighborhood = ispointinside(Pt(x=x, y=y), neighborhood)
         if correct_neighborhood:
-            # return neighborhood.name
             return neighborhood.id, neighborhood.name
     return None, None
 
